@@ -1,24 +1,26 @@
-package tn.esprit.gestionzoo.entities;
+package entities;
 
-public class Penguin extends Aquatic {
-    protected float swimmingDepth; // Instruction 20: Attribut spécifique
+public class Penguin extends Animal_aqua{
+    protected float sSpeed;
+    public Penguin() {}
 
-    // Instruction 20: Constructeur par défaut
-    public Penguin() {
+    public Penguin(String family, String name, int age, boolean isMammal,String habitat, float sSpeed) {
+    super(family, name, age, isMammal, habitat);
+    this.sSpeed = sSpeed;
     }
-
-    // Instruction 22: Constructeur paramétré
-    public Penguin(String family, String name, int age, boolean isMammal, String habitat, float swimmingDepth) {
-        super(family, name, age, isMammal, habitat); // Appel au constructeur de Aquatic
-        this.swimmingDepth = swimmingDepth;
+    public float getsSpeed() {
+        return sSpeed;
     }
-
-    // Instruction 23: Redéfinition de toString()
+    public void setsSpeed(float sSpeed) {
+        this.sSpeed = sSpeed;
+    }
     @Override
     public String toString() {
-        return super.toString() + ", Profondeur de nage=" + swimmingDepth + " mètres";
+        return super.toString()+" sSpeed=" + sSpeed;
+    }
+    @Override
+    public void swim() {
+        System.out.println("This penguin is swimming quickly under the ice!");
     }
 
-    // Instruction 24: La méthode swim() est héritée de Aquatic et affiche "This aquatic animal is swimming."
 }
-

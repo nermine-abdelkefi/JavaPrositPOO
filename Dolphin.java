@@ -1,27 +1,30 @@
-package tn.esprit.gestionzoo.entities;
+package entities;
 
-public class Dolphin extends Aquatic {
-    protected float swimmingSpeed; // Instruction 20: Attribut spécifique
-
-    // Instruction 20: Constructeur par défaut
+public class Dolphin extends Animal_aqua{
+    protected float sDepth;
     public Dolphin() {
-    }
+        super();
 
-    // Instruction 22: Constructeur paramétré
-    public Dolphin(String family, String name, int age, boolean isMammal, String habitat, float swimmingSpeed) {
-        super(family, name, age, isMammal, habitat); // Appel au constructeur de Aquatic
-        this.swimmingSpeed = swimmingSpeed;
-    }
 
-    // Instruction 23: Redéfinition de toString()
+    }
+    public Dolphin(String family, String name, int age, boolean isMammal,String habitat, float sDepth) {
+        super(family,name,age,isMammal, habitat);
+        this.sDepth = sDepth;
+    }
+    public float getsDepth() {
+        return sDepth;
+    }
+    public void setsDepth(float sDepth) {
+        this.sDepth = sDepth;
+    }
     @Override
     public String toString() {
-        return super.toString() + ", Vitesse de nage=" + swimmingSpeed + " km/h";
+        return super.toString()+" Sdepth=" + sDepth;
+    }
+    // redifinition de swim
+    @Override
+    public void swim(){
+        System.out.println("This dolphin is swimming");
     }
 
-    // Instruction 24: Redéfinition de swim()
-    @Override
-    public void swim() {
-        System.out.println("This dolphin is swimming.");
-    }
 }
